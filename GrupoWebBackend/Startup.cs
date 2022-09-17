@@ -37,7 +37,12 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using GrupoWebBackend.Shared.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
-
+using GrupoWebBackend.DomainReport;
+using Microsoft.AspNetCore.HttpOverrides;
+using GrupoWebBackend.DomainSubscriptions.Domain.Repositories;
+using GrupoWebBackend.DomainSubscriptions.Persistence.Repositories;
+using GrupoWebBackend.DomainSubscriptions.Domain.Services;
+using GrupoWebBackend.DomainSubscriptions.Services;
 
 namespace GrupoWebBackend
 {
@@ -65,11 +70,12 @@ namespace GrupoWebBackend
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseInMemoryDatabase("GrupoWebBackend-api-in-memory");
+                options.UseMySQL("server=localhost; user=timexp; database=timexp; password=XempreDB; port=3306");
+                //options.UseInMemoryDatabase("GrupoWebBackend-api-in-memory");
             });
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo {Title = "GrupoWebBackend", Version = "v1"});
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "TimExp Backend", Version = "v1"});
                 c.EnableAnnotations();
             });
             
@@ -91,7 +97,11 @@ namespace GrupoWebBackend
             services.AddScoped<IAdvertisementService, AdvertisementService>();
             services.AddScoped<IDistrictService, DistrictService>();
             services.AddScoped<IDistrictRepository, DistrictRepository>();
-            
+            services.AddScoped<IReportService, ReportService>();
+            services.AddScoped<IReportRepository, ReportRepository>();
+            services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
+            services.AddScoped<ISubscriptionService, SubscriptionService>();
+
             // AutoMapper Configuration
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
@@ -99,26 +109,26 @@ namespace GrupoWebBackend
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GrupoWebBackend v1"));
-            }
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
 
-            // Apply CORS Policies
-            app.UseCors(p => p
+            // For this course purpose we allow Swagger in release mode.
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TimExp Backend v1"));
+
+            app.UseCors(builder => builder
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader());
-            
-            // Integrate Error Handling Middleware
+
             app.UseMiddleware<ErrorHandlerMiddleware>();
-            
-            // Integrate JWT Authorization Middleware
+
             app.UseMiddleware<JwtMiddleware>();
-            
-            app.UseHttpsRedirection();
+
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

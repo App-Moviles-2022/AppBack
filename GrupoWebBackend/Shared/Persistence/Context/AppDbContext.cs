@@ -7,6 +7,8 @@ using GrupoWebBackend.DomainAdoptionsRequests.Domain.Models;
 using GrupoWebBackend.DomainDistrict.Domain.Models;
 using GrupoWebBackend.Security.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using GrupoWebBackend.DomainReport;
+using GrupoWebBackend.DomainSubscriptions.Domain.Models;
 
 namespace GrupoWebBackend.Shared.Persistence.Context
 {
@@ -24,17 +26,28 @@ namespace GrupoWebBackend.Shared.Persistence.Context
         public DbSet<Publication> Publications { get; set; }
         public DbSet<AdoptionsRequests> AdoptionsRequests { get; set; }
         public DbSet<District> Districts { get; set; }
-        
+        public DbSet<Report> Reports { get; set; }
+        public DbSet<Subscription> Subscriptions { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+
+            // Reports
+            builder.Entity<Report>().ToTable("Reports");
+            builder.Entity<Report>().HasKey(p => p.Id);
+            builder.Entity<Report>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Report>().Property(p => p.UserId).IsRequired();
+            builder.Entity<Report>().Property(p => p.Type).IsRequired(false);
+            builder.Entity<Report>().Property(p => p.Description).IsRequired(false);
+            builder.Entity<Report>().Property(p => p.DateTime).IsRequired(false);
+
+
             // Districts
             builder.Entity<District>().ToTable("Districts");
             builder.Entity<District>().HasKey(p => p.Id);
             builder.Entity<District>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-
-            
-            
             
             // Users
             builder.Entity<User>().ToTable("Users");
@@ -96,12 +109,29 @@ namespace GrupoWebBackend.Shared.Persistence.Context
             //builder.Entity<AdoptionsRequests>().Property(p => p.Status).HasMaxLength(30).IsRequired();
             builder.Entity<AdoptionsRequests>().Property(p =>p.UserIdFrom).IsRequired();
             builder.Entity<AdoptionsRequests>().Property(p => p.UserIdAt).IsRequired();
-            builder.Entity<AdoptionsRequests>().Property(p =>p.PublicationId).IsRequired(false);
+            builder.Entity<AdoptionsRequests>().Property(p =>p.PublicationId).IsRequired();
             // Districts
             builder.Entity<District>().ToTable("Districts");
             builder.Entity<District>().HasKey(p => p.Id);
             builder.Entity<District>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<District>().Property(p => p.DistrictName).IsRequired();
+
+            //Subscriptions
+
+            builder.Entity<Subscription>().ToTable("Subscriptions");
+            builder.Entity<Subscription>().HasKey(s => s.Id);
+            builder.Entity<Subscription>().Property(s => s.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Subscription>().Property(s => s.NumPosts).IsRequired();
+            builder.Entity<Subscription>().Property(s => s.StartDate).IsRequired();
+            builder.Entity<Subscription>().Property(s => s.EndDate).IsRequired();
+            builder.Entity<Subscription>().Property(s => s.UserId).IsRequired();
+            builder.Entity<Subscription>().Property(s => s.Expired).IsRequired();
+
+
+            // Reports Relationship
+            builder.Entity<Report>().HasOne(p => p.User)
+                .WithMany(p => p.Reports)
+                .HasForeignKey(p => p.UserId);
 
             // District Relationship
             builder.Entity<District>().HasMany(p => p.User)
@@ -141,6 +171,11 @@ namespace GrupoWebBackend.Shared.Persistence.Context
             builder.Entity<User>().HasMany(p => p.AdoptionsRequestsList)
                 .WithOne(p => p.User)
                 .HasForeignKey(p => p.UserIdFrom);
+
+            //Subscriptions Relations
+            builder.Entity<User>().HasOne(u => u.Subscription)
+               .WithOne(s => s.User)
+               .HasForeignKey<Subscription>(s => s.UserId);
           
           /*  builder.Entity<User>().HasMany(p => p.AdoptionsRequestsList)
                 .WithOne(p => p.User)
@@ -150,7 +185,7 @@ namespace GrupoWebBackend.Shared.Persistence.Context
                 .WithOne(p => p.Publication)
                 .HasForeignKey(p => p.PublicationId);
 */
-            /*builder.Entity<District>().HasData(
+            builder.Entity<District>().HasData(
                 new District
                 {
                     Id = 1,
@@ -161,15 +196,14 @@ namespace GrupoWebBackend.Shared.Persistence.Context
                     Id = 2,
                     DistrictName = "San Miguel"
                 }
-            );*/
+            );
 
-            /*builder.Entity<User>().HasData(
+            builder.Entity<User>().HasData(
                 new User
                 {
                     Id = 1,
                     Type = "VET",
                     UserNick = "Frank",
-                    Pass = "Password",
                     Ruc = "A12345rf",
                     Dni = "70258688",
                     Phone = "946401234",
@@ -179,9 +213,45 @@ namespace GrupoWebBackend.Shared.Persistence.Context
                     DistrictId = 1
                     //PetId = 100
                 }
-            );*/
+            );
+            
+            builder.Entity<User>().HasData(
+                new User
+                {
+                    Id = 2,
+                    Type = "VET",
+                    UserNick = "Pablo",
+                    Ruc = "",
+                    Dni = "",
+                    Phone = "",
+                    Email = "frank@outlook.com",
+                    Name = "Francisco",
+                    LastName = "Marmol",
+                    DistrictId = 1
+                    //PetId = 100
+                }
+            );
+            
+            builder.Entity<User>().HasData(
+                new User
+                {
+                    Id = 3,
+                    Type = "VET",
+                    UserNick = "Macaco",
+                    Ruc = "101010",
+                    Dni = "101010",
+                    Phone = "987654321",
+                    Email = "frank@outlook.com",
+                    Name = "Macaco",
+                    LastName = "Macaco",
+                    DistrictId = 1
+                    //PetId = 100
+                }
+            );
+            
+            
             // Pet Sample Data
-            /*builder.Entity<Pet>().HasData
+            builder.Entity<Pet>().HasData
             (
                 new Pet
                 {
@@ -192,7 +262,7 @@ namespace GrupoWebBackend.Shared.Persistence.Context
                     Race = "Caninus",
                     Age = 2,
                     IsAdopted = true,
-                    UserId = -1,
+                    UserId = 4,
                     PublicationId = 2
                 },
                 new Pet
@@ -203,8 +273,8 @@ namespace GrupoWebBackend.Shared.Persistence.Context
                     Attention = "Required",
                     Race = "Catitus",
                     Age = 2,
-                    IsAdopted = true,
-                    UserId = 1,
+                    IsAdopted = false,
+                    UserId = 4,
                     PublicationId = 1
                 },
                 new Pet
@@ -215,8 +285,8 @@ namespace GrupoWebBackend.Shared.Persistence.Context
                     Attention = "No Required",
                     Race = "Catitus",
                     Age = 2,
-                    IsAdopted = true,
-                    UserId = 1,
+                    IsAdopted = false,
+                    UserId = 4,
                     PublicationId = 1
                 },
                 new Pet
@@ -227,14 +297,14 @@ namespace GrupoWebBackend.Shared.Persistence.Context
                     Attention = "No Required",
                     Race = "Catitus",
                     Age = 3,
-                    IsAdopted = true,
-                    UserId = 1,
+                    IsAdopted = false,
+                    UserId = 4,
                     PublicationId = 1
                 }
-            );*/
+            );
 
             //Advertisement Sample Data
-            /*builder.Entity<Advertisement>().HasData
+            builder.Entity<Advertisement>().HasData
             (
                 new Advertisement
                 {
@@ -247,11 +317,10 @@ namespace GrupoWebBackend.Shared.Persistence.Context
                     UrlToImage = "https://www.lasamarillasdezipaquira.com/oc-content/uploads/1/352.jpg",
                     Promoted = true
                 }
-            );*/
+            );
             //User SampleData
 
             //Publications SampleData
-            /*
             builder.Entity<Publication>().HasData
             (
                 new Publication()
@@ -279,7 +348,6 @@ namespace GrupoWebBackend.Shared.Persistence.Context
                     Comment = "this is a comment"
                 }
             );
-            */
 
             //AdoptionsRequests SampleData
 

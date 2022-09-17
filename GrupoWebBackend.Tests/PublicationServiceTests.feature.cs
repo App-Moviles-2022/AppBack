@@ -19,59 +19,57 @@ namespace GrupoWebBackend.Tests
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class PublicationServiceTestsFeature : object, Xunit.IClassFixture<PublicationServiceTestsFeature.FixtureData>, System.IDisposable
+    [NUnit.Framework.TestFixtureAttribute()]
+    [NUnit.Framework.DescriptionAttribute("PublicationServiceTests")]
+    public partial class PublicationServiceTestsFeature
     {
         
-        private static TechTalk.SpecFlow.ITestRunner testRunner;
+        private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = ((string[])(null));
-        
-        private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
+        private static string[] featureTags = ((string[])(null));
         
 #line 1 "PublicationServiceTests.feature"
 #line hidden
         
-        public PublicationServiceTestsFeature(PublicationServiceTestsFeature.FixtureData fixtureData, GrupoWebBackend_Tests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
-        {
-            this._testOutputHelper = testOutputHelper;
-            this.TestInitialize();
-        }
-        
-        public static void FeatureSetup()
+        [NUnit.Framework.OneTimeSetUpAttribute()]
+        public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "", "PublicationServiceTests", "As a Developer\r\nI wan to add a new Publication through API\r\nSo that it is availab" +
-                    "le when wanting to see my publications.", ProgrammingLanguage.CSharp, ((string[])(null)));
+                    "le when wanting to see my publications.", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        public static void FeatureTearDown()
+        [NUnit.Framework.OneTimeTearDownAttribute()]
+        public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        public virtual void TestInitialize()
+        [NUnit.Framework.SetUpAttribute()]
+        public void TestInitialize()
         {
         }
         
-        public virtual void TestTearDown()
+        [NUnit.Framework.TearDownAttribute()]
+        public void TestTearDown()
         {
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
+        public void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
-            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<Xunit.Abstractions.ITestOutputHelper>(_testOutputHelper);
+            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<NUnit.Framework.TestContext>(NUnit.Framework.TestContext.CurrentContext);
         }
         
-        public virtual void ScenarioStart()
+        public void ScenarioStart()
         {
             testRunner.OnScenarioStart();
         }
         
-        public virtual void ScenarioCleanup()
+        public void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
@@ -83,247 +81,195 @@ namespace GrupoWebBackend.Tests
 #line 6
         testRunner.Given("the endpoint https://localhost:5001/api/v1/publications is available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
+            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Type",
+                        "UserNick",
+                        "Ruc",
+                        "Dni",
+                        "Phone",
+                        "Email",
+                        "Name",
+                        "LastName",
+                        "Pass"});
+            table17.AddRow(new string[] {
+                        "1",
+                        "VET",
+                        "Frank",
+                        "A12345",
+                        "70258688",
+                        "946401234",
+                        "frank@outlook.com",
+                        "Francisco",
+                        "Voularte",
+                        "123456"});
+#line 7
+        testRunner.And("A User is already stored for Publication", ((string)(null)), table17, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Type",
+                        "UserNick",
+                        "Ruc",
+                        "Dni",
+                        "Phone",
+                        "Email",
+                        "Name",
+                        "LastName",
+                        "Pass"});
+            table18.AddRow(new string[] {
+                        "2",
+                        "VET",
+                        "Frank2",
+                        "A12345",
+                        "70258688",
+                        "946401234",
+                        "frank1@outlook.com",
+                        "Francisco",
+                        "Voularte",
+                        "123456"});
+#line 10
+        testRunner.And("A User is already stored for Publication", ((string)(null)), table18, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Type",
+                        "UserNick",
+                        "Ruc",
+                        "Dni",
+                        "Phone",
+                        "Email",
+                        "Name",
+                        "LastName",
+                        "Pass"});
+            table19.AddRow(new string[] {
+                        "3",
+                        "VET",
+                        "Frank3",
+                        "A12345",
+                        "70258688",
+                        "946401234",
+                        "frank2@outlook.com",
+                        "Francisco",
+                        "Voularte",
+                        "123456"});
+#line 13
+        testRunner.And("A User is already stored for Publication", ((string)(null)), table19, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Type",
+                        "UserNick",
+                        "Ruc",
+                        "Dni",
+                        "Phone",
+                        "Email",
+                        "Name",
+                        "LastName",
+                        "Pass"});
+            table20.AddRow(new string[] {
+                        "4",
+                        "VET",
+                        "Frank4",
+                        "A12345",
+                        "70258688",
+                        "946401234",
+                        "frank3@outlook.com",
+                        "Francisco",
+                        "Voularte",
+                        "123456"});
+#line 16
+        testRunner.And("A User is already stored for Publication", ((string)(null)), table20, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserId",
+                        "Type",
+                        "Description",
+                        "DateTime"});
+            table21.AddRow(new string[] {
+                        "2",
+                        "Acoso",
+                        "Testing",
+                        "14/09/2022 11:35"});
+#line 19
+        testRunner.And("a Report is already stored for Publication", ((string)(null)), table21, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserId",
+                        "NumPosts",
+                        "Expired",
+                        "StartDate",
+                        "EndDate"});
+            table22.AddRow(new string[] {
+                        "1",
+                        "5",
+                        "0",
+                        "14-09-2022",
+                        "25-09-2022"});
+#line 22
+        testRunner.And("a Subscription is already stored for Publication", ((string)(null)), table22, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Type",
+                        "Name",
+                        "Attention",
+                        "Race",
+                        "Age",
+                        "isAdopted",
+                        "UserId",
+                        "PublicationId"});
+            table23.AddRow(new string[] {
+                        "101",
+                        "Cat",
+                        "Lolo",
+                        "Required",
+                        "Catitus",
+                        "2",
+                        "false",
+                        "1",
+                        "1"});
+#line 25
+        testRunner.And("a Pet is already stored for Publication", ((string)(null)), table23, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Type",
+                        "Name",
+                        "Attention",
+                        "Race",
+                        "Age",
+                        "isAdopted",
+                        "UserId",
+                        "PublicationId"});
+            table24.AddRow(new string[] {
+                        "102",
+                        "Dog",
+                        "Lolo",
+                        "Required",
+                        "Catitus",
+                        "2",
+                        "false",
+                        "1",
+                        "1"});
+#line 28
+        testRunner.And("a Pet is already stored for Publication", ((string)(null)), table24, "And ");
+#line hidden
         }
         
-        void System.IDisposable.Dispose()
-        {
-            this.TestTearDown();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Post a publication")]
-        [Xunit.TraitAttribute("FeatureTitle", "PublicationServiceTests")]
-        [Xunit.TraitAttribute("Description", "Post a publication")]
-        [Xunit.TraitAttribute("Category", "publication-adding")]
-        public virtual void PostAPublication()
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Post a publication")]
+        [NUnit.Framework.CategoryAttribute("publication-adding")]
+        public void PostAPublication()
         {
             string[] tagsOfScenario = new string[] {
                     "publication-adding"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post a publication", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 9
-    this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 5
-    this.FeatureBackground();
-#line hidden
-                TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
-                            "PetId",
-                            "UserId",
-                            "DateTime",
-                            "Comment"});
-                table14.AddRow(new string[] {
-                            "1",
-                            "4",
-                            "29/09/2021 16:20",
-                            "This is a test comment"});
-#line 10
-        testRunner.When("A publication is sent", ((string)(null)), table14, "When ");
-#line hidden
-#line 13
-        testRunner.Then("a response with status 200 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Post a publication with incorrect json body")]
-        [Xunit.TraitAttribute("FeatureTitle", "PublicationServiceTests")]
-        [Xunit.TraitAttribute("Description", "Post a publication with incorrect json body")]
-        public virtual void PostAPublicationWithIncorrectJsonBody()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post a publication with incorrect json body", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 15
-    this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 5
-    this.FeatureBackground();
-#line hidden
-                TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
-                            "petId",
-                            "userId",
-                            "dateTime",
-                            "conment"});
-                table15.AddRow(new string[] {
-                            "1",
-                            "1",
-                            "29/09/2021 16:20",
-                            "This is a test comment"});
-#line 16
-        testRunner.When("A publication is sent", ((string)(null)), table15, "When ");
-#line hidden
-#line 19
-        testRunner.Then("a response with status 400 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Update a publication with correct id and body")]
-        [Xunit.TraitAttribute("FeatureTitle", "PublicationServiceTests")]
-        [Xunit.TraitAttribute("Description", "Update a publication with correct id and body")]
-        public virtual void UpdateAPublicationWithCorrectIdAndBody()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update a publication with correct id and body", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 21
-    this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 5
-    this.FeatureBackground();
-#line hidden
-#line 22
-        testRunner.Given("the endpoint https://localhost:5001/api/v1/publications/2 is available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-                TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
-                            "PetId",
-                            "UserId",
-                            "DateTime",
-                            "Comment"});
-                table16.AddRow(new string[] {
-                            "2",
-                            "4",
-                            "date updated",
-                            "This is a test comment updated"});
-#line 23
-        testRunner.When("An update  publication is sent", ((string)(null)), table16, "When ");
-#line hidden
-#line 26
-        testRunner.Then("a response with status 200 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Update a publication with wrong publication id")]
-        [Xunit.TraitAttribute("FeatureTitle", "PublicationServiceTests")]
-        [Xunit.TraitAttribute("Description", "Update a publication with wrong publication id")]
-        public virtual void UpdateAPublicationWithWrongPublicationId()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update a publication with wrong publication id", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 28
-    this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 5
-    this.FeatureBackground();
-#line hidden
-#line 29
-        testRunner.Given("the endpoint https://localhost:5001/api/v1/publications/1 is not available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-                TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
-                            "PetId",
-                            "UserId",
-                            "DateTime",
-                            "Comment"});
-                table17.AddRow(new string[] {
-                            "2",
-                            "0",
-                            "date updated",
-                            "This is a test comment updated"});
-#line 30
-        testRunner.When("An update  publication is sent", ((string)(null)), table17, "When ");
-#line hidden
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post a publication", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 33
-        testRunner.Then("a response with status 400 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Delete a publication")]
-        [Xunit.TraitAttribute("FeatureTitle", "PublicationServiceTests")]
-        [Xunit.TraitAttribute("Description", "Delete a publication")]
-        public virtual void DeleteAPublication()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete a publication", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 35
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -333,121 +279,146 @@ namespace GrupoWebBackend.Tests
 #line 5
     this.FeatureBackground();
 #line hidden
-#line 36
-      testRunner.Given("the endpoint https://localhost:5001/api/v1/publications/2 is available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
+                            "PetId",
+                            "UserId",
+                            "DateTime",
+                            "Comment"});
+                table25.AddRow(new string[] {
+                            "101",
+                            "1",
+                            "29/09/2021 16:20",
+                            "This is a test comment"});
+#line 34
+        testRunner.When("A publication is sent", ((string)(null)), table25, "When ");
 #line hidden
 #line 37
-      testRunner.When("An a delete request is sent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 38
-      testRunner.Then("a response with status 200 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Delete a publication go wrong")]
-        [Xunit.TraitAttribute("FeatureTitle", "PublicationServiceTests")]
-        [Xunit.TraitAttribute("Description", "Delete a publication go wrong")]
-        public virtual void DeleteAPublicationGoWrong()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete a publication go wrong", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 40
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 5
-    this.FeatureBackground();
-#line hidden
-#line 41
-        testRunner.Given("the endpoint https://localhost:5001/api/v1/publications/1 is not available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 42
-        testRunner.When("An a delete request is sent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 43
-        testRunner.Then("a response with status 400 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Get all current publications as a vet")]
-        [Xunit.TraitAttribute("FeatureTitle", "PublicationServiceTests")]
-        [Xunit.TraitAttribute("Description", "Get all current publications as a vet")]
-        public virtual void GetAllCurrentPublicationsAsAVet()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get all current publications as a vet", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 45
-    this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 5
-    this.FeatureBackground();
-#line hidden
-#line 46
-        testRunner.Given("the endpoint https://localhost:5001/api/v1/Users/3/publications is available now", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 47
-        testRunner.When("A get publications by user request is sent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 48
         testRunner.Then("a response with status 200 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
-        [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        public class FixtureData : System.IDisposable
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Post a publication of the same pet")]
+        public void PostAPublicationOfTheSamePet()
         {
-            
-            public FixtureData()
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post a publication of the same pet", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 38
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
-                PublicationServiceTestsFeature.FeatureSetup();
+                testRunner.SkipScenario();
             }
-            
-            void System.IDisposable.Dispose()
+            else
             {
-                PublicationServiceTestsFeature.FeatureTearDown();
+                this.ScenarioStart();
+#line 5
+    this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
+                            "PetId",
+                            "UserId",
+                            "DateTime",
+                            "Comment"});
+                table26.AddRow(new string[] {
+                            "101",
+                            "1",
+                            "29/09/2021 16:20",
+                            "This is a test comment"});
+#line 39
+        testRunner.When("A publication is sent", ((string)(null)), table26, "When ");
+#line hidden
+#line 42
+        testRunner.Then("a response with status 400 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Post a publication from reported user")]
+        public void PostAPublicationFromReportedUser()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post a publication from reported user", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 43
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 5
+    this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
+                            "PetId",
+                            "UserId",
+                            "DateTime",
+                            "Comment"});
+                table27.AddRow(new string[] {
+                            "102",
+                            "2",
+                            "29/09/2021 16:20",
+                            "This is a test comment"});
+#line 44
+        testRunner.When("A publication is sent", ((string)(null)), table27, "When ");
+#line hidden
+#line 47
+        testRunner.Then("a response with Message \"This user has at least one report.\" and status 400 is re" +
+                        "ceived", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Post a publication from not subscribed user")]
+        public void PostAPublicationFromNotSubscribedUser()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post a publication from not subscribed user", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 48
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 5
+    this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
+                            "PetId",
+                            "UserId",
+                            "DateTime",
+                            "Comment"});
+                table28.AddRow(new string[] {
+                            "102",
+                            "3",
+                            "29/09/2021 16:20",
+                            "This is a test comment"});
+#line 49
+        testRunner.When("A publication is sent", ((string)(null)), table28, "When ");
+#line hidden
+#line 52
+        testRunner.Then("a response with Message \"This user not have a subscription.\" and status 400 is re" +
+                        "ceived", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
         }
     }
 }

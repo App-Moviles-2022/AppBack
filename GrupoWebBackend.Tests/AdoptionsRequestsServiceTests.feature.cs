@@ -19,59 +19,57 @@ namespace GrupoWebBackend.Tests
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class AdoptionsRequestsServiceTestsFeature : object, Xunit.IClassFixture<AdoptionsRequestsServiceTestsFeature.FixtureData>, System.IDisposable
+    [NUnit.Framework.TestFixtureAttribute()]
+    [NUnit.Framework.DescriptionAttribute("AdoptionsRequestsServiceTests")]
+    public partial class AdoptionsRequestsServiceTestsFeature
     {
         
-        private static TechTalk.SpecFlow.ITestRunner testRunner;
+        private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = ((string[])(null));
-        
-        private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
+        private static string[] featureTags = ((string[])(null));
         
 #line 1 "AdoptionsRequestsServiceTests.feature"
 #line hidden
         
-        public AdoptionsRequestsServiceTestsFeature(AdoptionsRequestsServiceTestsFeature.FixtureData fixtureData, GrupoWebBackend_Tests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
-        {
-            this._testOutputHelper = testOutputHelper;
-            this.TestInitialize();
-        }
-        
-        public static void FeatureSetup()
+        [NUnit.Framework.OneTimeSetUpAttribute()]
+        public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "", "AdoptionsRequestsServiceTests", "As a Developer\r\nI want to add new Adoption Requests through API\r\nSo that it is av" +
-                    "ailable when the user make a adoption requests", ProgrammingLanguage.CSharp, ((string[])(null)));
+                    "ailable when the user make a adoption requests", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        public static void FeatureTearDown()
+        [NUnit.Framework.OneTimeTearDownAttribute()]
+        public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        public virtual void TestInitialize()
+        [NUnit.Framework.SetUpAttribute()]
+        public void TestInitialize()
         {
         }
         
-        public virtual void TestTearDown()
+        [NUnit.Framework.TearDownAttribute()]
+        public void TestTearDown()
         {
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
+        public void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
-            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<Xunit.Abstractions.ITestOutputHelper>(_testOutputHelper);
+            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<NUnit.Framework.TestContext>(NUnit.Framework.TestContext.CurrentContext);
         }
         
-        public virtual void ScenarioStart()
+        public void ScenarioStart()
         {
             testRunner.OnScenarioStart();
         }
         
-        public virtual void ScenarioCleanup()
+        public void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
@@ -87,213 +85,143 @@ namespace GrupoWebBackend.Tests
                         "Id",
                         "Type",
                         "UserNick",
-                        "Pass",
                         "Ruc",
                         "Dni",
                         "Phone",
                         "Email",
                         "Name",
                         "LastName",
-                        "DistrictId"});
+                        "Pass"});
             table4.AddRow(new string[] {
                         "1",
                         "VET",
                         "Frank",
-                        "Password",
-                        "A12345rf",
+                        "A12345",
                         "70258688",
                         "946401234",
                         "frank@outlook.com",
                         "Francisco",
                         "Voularte",
-                        "1"});
+                        "123456"});
 #line 7
   testRunner.And("A User is already stored for AdoptionsRequests", ((string)(null)), table4, "And ");
 #line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Type",
+                        "UserNick",
+                        "Ruc",
+                        "Dni",
+                        "Phone",
+                        "Email",
+                        "Name",
+                        "LastName",
+                        "Pass"});
+            table5.AddRow(new string[] {
+                        "2",
+                        "VET",
+                        "Hector",
+                        "",
+                        "",
+                        "",
+                        "Hector@outlook.com",
+                        "Hector",
+                        "Voularte",
+                        "123456"});
+#line 10
+  testRunner.And("A Second User is already stored for AdoptionsRequests", ((string)(null)), table5, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Type",
+                        "UserNick",
+                        "Ruc",
+                        "Dni",
+                        "Phone",
+                        "Email",
+                        "Name",
+                        "LastName",
+                        "Pass"});
+            table6.AddRow(new string[] {
+                        "3",
+                        "VET",
+                        "Pablin",
+                        "A12345",
+                        "70258688",
+                        "946401234",
+                        "pablin@outlook.com",
+                        "Pablo",
+                        "Marmol",
+                        "123456"});
+#line 13
+  testRunner.And("A Third User is already stored for AdoptionsRequests", ((string)(null)), table6, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserId",
+                        "Type",
+                        "Description",
+                        "DateTime"});
+            table7.AddRow(new string[] {
+                        "3",
+                        "Acoso",
+                        "Testing",
+                        "14/09/2022 11:35"});
+#line 16
+  testRunner.And("A Report already stored for AdoptionsRequests", ((string)(null)), table7, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Type",
+                        "Name",
+                        "Attention",
+                        "Race",
+                        "Age",
+                        "isAdopted",
+                        "UserId",
+                        "PublicationId"});
+            table8.AddRow(new string[] {
+                        "101",
+                        "Cat",
+                        "Lolo",
+                        "Required",
+                        "Catitus",
+                        "2",
+                        "false",
+                        "1",
+                        "1"});
+#line 19
+  testRunner.And("A Pet already stored for AdoptionsRequests", ((string)(null)), table8, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "UserId",
+                        "DateTime",
+                        "PetId",
+                        "Comment"});
+            table9.AddRow(new string[] {
+                        "1",
+                        "2",
+                        "29/09/2021",
+                        "101",
+                        "Comentario"});
+#line 22
+  testRunner.And("A Publication already stored for AdoptionsRequests", ((string)(null)), table9, "And ");
+#line hidden
         }
         
-        void System.IDisposable.Dispose()
-        {
-            this.TestTearDown();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="A AdoptionsRequests is sent")]
-        [Xunit.TraitAttribute("FeatureTitle", "AdoptionsRequestsServiceTests")]
-        [Xunit.TraitAttribute("Description", "A AdoptionsRequests is sent")]
-        [Xunit.TraitAttribute("Category", "adoptionsrequests-adding")]
-        public virtual void AAdoptionsRequestsIsSent()
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("A AdoptionsRequests is sent from not Authenticated User")]
+        [NUnit.Framework.CategoryAttribute("adoptionsrequests-adding")]
+        public void AAdoptionsRequestsIsSentFromNotAuthenticatedUser()
         {
             string[] tagsOfScenario = new string[] {
                     "adoptionsrequests-adding"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A AdoptionsRequests is sent", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 11
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 5
- this.FeatureBackground();
-#line hidden
-                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Message",
-                            "Status",
-                            "UserIdFrom",
-                            "UserId",
-                            "PublicationId"});
-                table5.AddRow(new string[] {
-                            "hello",
-                            "pending",
-                            "2",
-                            "1",
-                            "1"});
-#line 12
- testRunner.When("A adoption request is sent", ((string)(null)), table5, "When ");
-#line hidden
-#line 15
- testRunner.Then("A Response with Status 200 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Add Adoption Request with empty data")]
-        [Xunit.TraitAttribute("FeatureTitle", "AdoptionsRequestsServiceTests")]
-        [Xunit.TraitAttribute("Description", "Add Adoption Request with empty data")]
-        public virtual void AddAdoptionRequestWithEmptyData()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Adoption Request with empty data", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 16
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 5
- this.FeatureBackground();
-#line hidden
-                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Message",
-                            "Status"});
-                table6.AddRow(new string[] {
-                            "hello",
-                            ""});
-#line 17
- testRunner.When("A post adoption request is sent", ((string)(null)), table6, "When ");
-#line hidden
-#line 20
- testRunner.Then("AAdoptionRequests With Status 400 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Add Adoption Request with same data")]
-        [Xunit.TraitAttribute("FeatureTitle", "AdoptionsRequestsServiceTests")]
-        [Xunit.TraitAttribute("Description", "Add Adoption Request with same data")]
-        public virtual void AddAdoptionRequestWithSameData()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Adoption Request with same data", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 21
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 5
- this.FeatureBackground();
-#line hidden
-                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Message",
-                            "Status",
-                            "UserIdFrom",
-                            "UserId",
-                            "PublicationId"});
-                table7.AddRow(new string[] {
-                            "hello",
-                            "pending",
-                            "2",
-                            "1",
-                            "1"});
-#line 22
- testRunner.When("A post adoption request is sent", ((string)(null)), table7, "When ");
-#line hidden
-#line 25
- testRunner.Then("AAdoptionRequests With Status 200 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Delete a adoptions request dont available")]
-        [Xunit.TraitAttribute("FeatureTitle", "AdoptionsRequestsServiceTests")]
-        [Xunit.TraitAttribute("Description", "Delete a adoptions request dont available")]
-        public virtual void DeleteAAdoptionsRequestDontAvailable()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete a adoptions request dont available", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A AdoptionsRequests is sent from not Authenticated User", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 27
-  this.ScenarioInitialize(scenarioInfo);
+ this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -302,95 +230,12 @@ this.ScenarioInitialize(scenarioInfo);
                 this.ScenarioStart();
 #line 5
  this.FeatureBackground();
-#line hidden
-                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Message",
-                            "Status",
-                            "UserIdFrom",
-                            "UserId",
-                            "PublicationId"});
-                table8.AddRow(new string[] {
-                            "hello",
-                            "pending",
-                            "2",
-                            "2",
-                            "18"});
-#line 28
-        testRunner.When("An a delete request of adoptions requests is sent", ((string)(null)), table8, "When ");
-#line hidden
-#line 31
-        testRunner.Then("a response with status 400 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Database update its information when there is a new candidate for adopting")]
-        [Xunit.TraitAttribute("FeatureTitle", "AdoptionsRequestsServiceTests")]
-        [Xunit.TraitAttribute("Description", "Database update its information when there is a new candidate for adopting")]
-        public virtual void DatabaseUpdateItsInformationWhenThereIsANewCandidateForAdopting()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Database update its information when there is a new candidate for adopting", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 33
-       this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 5
- this.FeatureBackground();
-#line hidden
-#line 34
-   testRunner.Given("the endpoint https://localhost:5001/api/v1/AdoptionsRequests/1 is available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Id",
-                            "Type",
-                            "UserNick",
-                            "Pass",
-                            "Ruc",
-                            "Dni",
-                            "Phone",
-                            "Email",
-                            "Name",
-                            "LastName",
-                            "DistrictId"});
-                table9.AddRow(new string[] {
-                            "2",
-                            "client",
-                            "an",
-                            "Password",
-                            "A12345rf",
-                            "70258688",
-                            "946401234",
-                            "ana@gmail.com",
-                            "Ana",
-                            "Araoz",
-                            "1"});
-#line 35
-        testRunner.And("A User is already stored for AdoptionsRequests", ((string)(null)), table9, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                             "Message",
                             "Status",
                             "UserIdFrom",
-                            "UserId",
+                            "UserIdAt",
                             "PublicationId"});
                 table10.AddRow(new string[] {
                             "hello",
@@ -398,30 +243,145 @@ this.ScenarioInitialize(scenarioInfo);
                             "2",
                             "1",
                             "1"});
-#line 38
-   testRunner.When("An update  adoption request is sent", ((string)(null)), table10, "When ");
+#line 28
+  testRunner.When("A adoption request is sent from not Authenticated User", ((string)(null)), table10, "When ");
 #line hidden
-#line 41
-        testRunner.Then("a response with status 200 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 31
+  testRunner.Then("A Response with Message \"This user is not authenticated.\" and Status 400 is recei" +
+                        "ved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
-        [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        public class FixtureData : System.IDisposable
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("A AdoptionsRequests is sent from Reported User")]
+        public void AAdoptionsRequestsIsSentFromReportedUser()
         {
-            
-            public FixtureData()
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A AdoptionsRequests is sent from Reported User", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 32
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
-                AdoptionsRequestsServiceTestsFeature.FeatureSetup();
+                testRunner.SkipScenario();
             }
-            
-            void System.IDisposable.Dispose()
+            else
             {
-                AdoptionsRequestsServiceTestsFeature.FeatureTearDown();
+                this.ScenarioStart();
+#line 5
+ this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Message",
+                            "Status",
+                            "UserIdFrom",
+                            "UserIdAt",
+                            "PublicationId"});
+                table11.AddRow(new string[] {
+                            "hello",
+                            "pending",
+                            "3",
+                            "1",
+                            "1"});
+#line 33
+  testRunner.When("A adoption request is sent from Reported User", ((string)(null)), table11, "When ");
+#line hidden
+#line 36
+  testRunner.Then("A Response with Message \"This user has at least one report.\" and Status 400 is re" +
+                        "ceived", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("A AdoptionsRequests is sent from Authenticated and not Reported User")]
+        public void AAdoptionsRequestsIsSentFromAuthenticatedAndNotReportedUser()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A AdoptionsRequests is sent from Authenticated and not Reported User", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 37
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 5
+ this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Message",
+                            "Status",
+                            "UserIdFrom",
+                            "UserIdAt",
+                            "PublicationId"});
+                table12.AddRow(new string[] {
+                            "hello",
+                            "pending",
+                            "1",
+                            "2",
+                            "1"});
+#line 38
+  testRunner.When("A adoption request is sent", ((string)(null)), table12, "When ");
+#line hidden
+#line 41
+  testRunner.Then("A Response with Status 200 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("A AdoptionsRequests is sent from Authenticated and not Reported User another time" +
+            "")]
+        public void AAdoptionsRequestsIsSentFromAuthenticatedAndNotReportedUserAnotherTime()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A AdoptionsRequests is sent from Authenticated and not Reported User another time" +
+                    "", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 42
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 5
+ this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Message",
+                            "Status",
+                            "UserIdFrom",
+                            "UserIdAt",
+                            "PublicationId"});
+                table13.AddRow(new string[] {
+                            "hello",
+                            "pending",
+                            "1",
+                            "2",
+                            "1"});
+#line 43
+  testRunner.When("A adoption request is sent", ((string)(null)), table13, "When ");
+#line hidden
+#line 46
+  testRunner.Then("A Response with Message \"This user already has an existing adoption request.\" and" +
+                        " Status 400 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
         }
     }
 }
